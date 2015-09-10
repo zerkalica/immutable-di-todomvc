@@ -1,0 +1,36 @@
+{
+    "stage": 0,
+    "optional": [
+        "runtime",
+        "es7.decorators",
+        "utility.inlineEnvironmentVariables"
+    ],
+    "plugins": [
+        "babel-plugin-module-alias",
+        "babel-plugin-defines"
+    ],
+    "env": {
+        "development": {
+            "plugins": [
+                "babel-plugin-espower"
+            ],
+            "extra": {
+                "defines": {
+                    "DEBUG": "app:*"
+                }
+            }
+        }
+    },
+    "extra": {
+        "defines": {
+            "BROWSER": true,
+            "DEBUG": ""
+        },
+        "module-alias": [
+            {
+                "src": "./src",
+                "expose": "app"
+            }
+        ]
+    }
+}

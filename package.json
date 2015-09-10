@@ -1,0 +1,79 @@
+{
+  "name": "immutable-di-todomvc",
+  "version": "0.0.1",
+  "description": "Simple babel starter kit",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "prepublish": "npm run lint && npm run test && npm run build",
+    "pre-commit": "npm run lint",
+    "update": "ncu -ua && npm install",
+    "pull": "git checkout master && git pull origin master",
+    "push": "git push origin master --tags && npm publish",
+    "release-patch": "npm run pull && npm version patch && npm run push",
+    "release-minor": "npm run pull && npm version minor && npm run push",
+    "release-major": "npm run pull && npm version major && npm run push",
+    "clean": "rm -rf build __tests__ *.js *.map build",
+    "build": "npm run clean && babel src --source-maps --out-dir build",
+    "deploy": "npm run clean && babel src --source-maps --watch",
+    "prod": "npm run build -- --production",
+    "dev": "npm run build -- --watch",
+    "lint": "eslint src",
+    "test": "mocha",
+    "test.dev": "npm run test -- --growl --watch",
+    "test.cov": "babel-istanbul cover --report text --report html node_modules/mocha/bin/_mocha",
+    "start": "webpack-dev-server --config conf/webpack.config.es5.js --hot --inline"
+  },
+  "author": "Stefan Zerkalica <zerkalica@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/zerkalica/babel-starter-kit.git"
+  },
+  "files": [
+    "*.map",
+    "*.js",
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "babel-runtime": "^5.8.20",
+    "debug": "^2.2.0",
+    "immutable-di": "^1.3.21",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.24",
+    "babel-eslint": "^4.1.1",
+    "babel-loader": "^5.3.2",
+    "babel-plugin-defines": "^1.0.1",
+    "babel-plugin-espower": "^1.0.0",
+    "babel-plugin-module-alias": "^0.1.2",
+    "css-loader": "^0.18.0",
+    "eslint": "^1.3.1",
+    "eslint-config-airbnb": "0.0.8",
+    "eslint-config-airplus": "^1.0.4",
+    "eslint-plugin-react": "^3.3.2",
+    "glob": "^5.0.14",
+    "html-webpack-plugin": "^1.6.1",
+    "import-glob-loader": "^1.1.0",
+    "json-loader": "^0.5.2",
+    "minimist": "^1.2.0",
+    "mocha": "^2.3.2",
+    "npm-check-updates": "^2.2.2",
+    "power-assert": "^1.0.0",
+    "proxyquire": "^1.7.2",
+    "react-hot-loader": "^1.3.0",
+    "sinon": "^1.16.1",
+    "style-loader": "^0.12.3",
+    "stylus-loader": "^1.3.0",
+    "unexpected": "^9.11.0",
+    "unexpected-react-shallow": "^0.2.0",
+    "webpack": "^1.12.1",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
