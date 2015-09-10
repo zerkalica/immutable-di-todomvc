@@ -1,25 +1,26 @@
 import 'app/All.styl'
+
 import __debug from 'debug'
 import React from 'react'
 import Container from 'immutable-di'
 import NativeCursor from 'immutable-di/cursors/native'
+import App from 'todomvc/app/components/App'
+import getConfig from 'todomvc/getConfig'
 
-import InitCounter from 'app/actions/counter/InitCounter'
-import App from 'app/components/App'
-import state from 'app/state.json'
+const debug = __debug('app:debug:index')
 
 if (global.BROWSER && global.DEBUG) {
     __debug.enable(global.DEBUG)
 }
 
-const debug = __debug('app:debug:index')
+const config = getConfig({
+    location: window.location,
+    referrer: document.referrer,
+    headers: {}
+})
 
-const container = new Container(new NativeCursor(state))
+const container = new Container(new NativeCursor(config))
 const el = document.querySelector('body')
-container.once(App.stateMap, () =>
-    React.render(<App container={container} />, el)
-)
 
-const initCounter = container.get(InitCounter)
-initCounter(1)
+React.render(<App container={container} />, el)
 debug('app started')

@@ -29,7 +29,7 @@
         "module-alias": [
             {
                 "src": "./src",
-                "expose": "app"
+                "expose": "todomvc"
             }
         ]
     }

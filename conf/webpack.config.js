@@ -14,12 +14,20 @@ export default {
         filename: 'app.js'
     },
     entry: path.resolve(__dirname, '..', 'src', 'index.js'),
+    configLoader: {
+        env: !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? 'dev' : 'prod',
+        instance: process.env.APP_INSTANCE || 'client'
+    },
     module: {
         preLoaders: [{
             test: /\.styl$/,
             loader: 'import-glob-loader'
         }],
         loaders: [
+            {
+                test: /.*\.configloaderrc$/,
+                loader: 'node-config-loader/webpack'
+            },
             {
                 test: /\.json$/,
                 loaders: ['json-loader']

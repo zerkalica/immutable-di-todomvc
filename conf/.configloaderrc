@@ -1,0 +1,6 @@
+{
+    "mask": [
+        "{DIRNAME}/app/**/*.yml"
+    ],
+    "tagSeparator": "#"
+}

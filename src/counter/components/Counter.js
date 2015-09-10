@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import statefull from 'immutable-di/react/statefull'
 
-import AddCounter from 'app/actions/counter/AddCounter'
+import AddCounter from 'todomvc/counter/actions/AddCounter'
 
 const {func, number} = PropTypes
 

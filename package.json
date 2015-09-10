@@ -29,7 +29,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "http://github.com/zerkalica/babel-starter-kit.git"
+    "url": "http://github.com/zerkalica/immutable-di-todomvc.git"
   },
   "files": [
     "*.map",
@@ -42,6 +42,7 @@
     "babel-runtime": "^5.8.20",
     "debug": "^2.2.0",
     "immutable-di": "^1.3.21",
+    "node-config-loader": "^1.1.1",
     "react": "^0.13.3"
   },
   "devDependencies": {
