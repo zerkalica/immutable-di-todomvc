@@ -1,0 +1,5 @@
+routes:
+    /: UsersPage
+    /user/<id>: UserInfoPage
+    /user/<id>/todos: UserTodoListsPage
+    /todos/<id>: TodosPage

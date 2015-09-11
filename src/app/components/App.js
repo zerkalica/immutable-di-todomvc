@@ -1,15 +1,44 @@
+import Layout from 'todomvc/app/components/Layout'
+import PageMap from 'todomvc/app/components/PageMap'
 import React from 'react'
 import root from 'immutable-di/react/root'
-import Counter from 'todomvc/app/components/counter/Counter'
-import Layout from 'todomvc/app/components/Layout'
+import statefull from 'immutable-di/react/statefull'
+import Translator from 'todomvc/common/services/Translator'
+
+const NotFoundPage = PageMap.NotFoundPage
+
+const {
+    string,
+    func
+} = React.PropTypes
 
 @root
+@statefull({
+    page: ['route', 'page'],
+    t: Translator
+})
 export default class App extends React.Component {
+    static propTypes = {
+        t: func.isRequired,
+        page: string.isRequired
+    }
+
+    static childContextTypes = {
+        t: func
+    }
+
+    getChildContext() {
+        return {
+            t: this.props.t
+        }
+    }
+
     render() {
+        const Widget = PageMap[page] || NotFoundPage
+
         return (
             <Layout>
-                <h1>Counter app</h1>
-                <Counter />
+                <Widget />
             </Layout>
         )
     }
