@@ -34,11 +34,14 @@ export default class App extends React.Component {
     }
 
     render() {
-        const Widget = PageMap[page] || NotFoundPage
+        const Widget = PageMap[this.props.page]
 
         return (
             <Layout>
-                <Widget />
+                {Widget
+                    ? <Widget />
+                    : <NotFoundPage page={this.props.page} />
+                }
             </Layout>
         )
     }

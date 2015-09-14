@@ -2,8 +2,6 @@ import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 
-const DEBUG = 'app:*'
-
 export default {
     cwd: path.resolve(__dirname, '..'),
     cache: true,
@@ -24,10 +22,6 @@ export default {
             loader: 'import-glob-loader'
         }],
         loaders: [
-            {
-                test: /.*\.configloaderrc$/,
-                loader: 'node-config-loader/webpack'
-            },
             {
                 test: /\.json$/,
                 loaders: ['json-loader']

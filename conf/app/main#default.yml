@@ -1,3 +1,6 @@
-route:
-    page: ''
-    query: {}
+config:
+    debug: todomvc:*
+    sitePrefix: ''
+    locale:
+        lang: 'en'
+    pushState: true

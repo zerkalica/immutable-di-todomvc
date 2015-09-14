@@ -2,6 +2,8 @@ import config from 'node-config-loader/webpack!../conf/.configloaderrc'
 import merge from 'node-config-loader/utils/merge'
 
 function getRuntimeConfig({settings, location, referrer, headers}) {
+    settings = settings || {}
+
     return {
         env: {
             origin: location.origin,

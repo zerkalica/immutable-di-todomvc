@@ -1,5 +1,7 @@
-routes:
-    /: UsersPage
-    /user/<id>: UserInfoPage
-    /user/<id>/todos: UserTodoListsPage
-    /todos/<id>: TodosPage
+config:
+    routes:
+        /: UsersPage
+        /counter: CounterPage
+        /user/<id>: UserInfoPage
+        /user/<id>/todos: UserTodoListsPage
+        /todos/<id>: TodosPage

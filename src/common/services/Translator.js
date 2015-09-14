@@ -6,6 +6,6 @@ function Translator(options) {
 }
 
 export default Factory({
-    locale: ['i18n', 'locale'],
-    phrases: ['i18n', 'phrases']
+    locale: ['config', 'i18n', 'locale'],
+    phrases: ['config', 'i18n', 'phrases']
 })(Translator)
