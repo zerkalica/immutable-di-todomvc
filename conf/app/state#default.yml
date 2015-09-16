@@ -1,3 +1,6 @@
 route:
     page: ''
     query: {}
+
+user:
+    users: []
