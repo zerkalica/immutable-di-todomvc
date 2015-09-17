@@ -1,14 +1,8 @@
 import React from 'react'
-import statefull from 'immutable-di/react/statefull'
+import statefull from 'immutable-di-react/statefull'
 import UsersFacet from 'todomvc/user/facets/UsersFacet'
 import UsersList from 'todomvc/user/components/usersList/UsersList'
 import Location from 'todomvc/common/services/Location'
-
-const {
-    string,
-    arrayOf,
-    shape
-} = React.PropType
 
 @statefull({
     users: UsersFacet,

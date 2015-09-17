@@ -1,5 +1,5 @@
 import React from 'react'
-import statefull from 'immutable-di/react/statefull'
+import statefull from 'immutable-di-react/statefull'
 
 @statefull({
 

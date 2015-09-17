@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 import React from 'react'
 
-import {expect, createRenderer} from 'app/testHelpers'
-import Layout from 'app/components/Layout'
+import {expect, createRenderer} from 'todomvc/testHelpers'
+import Layout from 'todomvc/app/components/Layout'
 
 describe('Layout', () => {
     it('should rendered', () => {
-        expect(createRenderer(<Layout/>), 'to have rendered', <div className="app"/>)
+        expect(createRenderer(<Layout/>), 'to have rendered', <div className="app-layout"/>)
     })
 })

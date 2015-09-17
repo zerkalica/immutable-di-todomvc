@@ -1,8 +1,8 @@
 import Layout from 'todomvc/app/components/Layout'
 import PageMap from 'todomvc/app/components/PageMap'
 import React from 'react'
-import root from 'immutable-di/react/root'
-import statefull from 'immutable-di/react/statefull'
+import root from 'immutable-di-react/root'
+import statefull from 'immutable-di-react/statefull'
 import Translator from 'todomvc/common/services/Translator'
 
 const NotFoundPage = PageMap.NotFoundPage
@@ -12,7 +12,7 @@ const {
     func
 } = React.PropTypes
 
-@root
+@root()
 @statefull({
     page: ['route', 'page'],
     t: Translator
