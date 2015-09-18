@@ -5,5 +5,8 @@ route:
 user:
     users: []
 
+todo:
+    todoLists: []
+
 fetcher:
     error: ''
