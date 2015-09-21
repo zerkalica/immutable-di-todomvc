@@ -3,9 +3,11 @@ route:
     query: {}
 
 user:
+    current: {}
     users: []
 
 todo:
+    todos: []
     todoLists: []
 
 fetcher:

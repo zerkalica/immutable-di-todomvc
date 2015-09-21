@@ -1,12 +1,16 @@
 import {Factory} from 'immutable-di/define'
 import Fetch from 'todomvc/common/services/Fetch'
 
-function normalizeTodoLists(l) {
+function normalizeTodoList(l) {
     return {
         id: l.id,
         title: l.title,
         description: l.description
     }
+}
+
+function normalizeTodoLists(lists) {
+    return lists.map(normalizeTodoList)
 }
 
 function FetchTodoLists({fetch}) {

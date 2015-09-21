@@ -1,7 +1,8 @@
+import Location from 'todomvc/common/services/Location'
 import React from 'react'
 import statefull from 'immutable-di-react/statefull'
-import Location from 'todomvc/common/services/Location'
 import UserInfoPageFacet from 'todomvc/todo/facets/UserInfoPageFacet'
+import UserInfo from 'todomvc/user/components/UserInfo'
 
 @statefull({
     userInfo: UserInfoPageFacet,
@@ -14,24 +15,23 @@ export default class UserInfoPage extends React.Component {
             location
         } = this.props
 
-        const {user, userTodoLists} = userInfo
+        const {user, todoLists} = userInfo
 
         return (
             <div>
-                <section>
-                    <h1>UserInfoPage</h1>
-                    <ul>
-                        <li>Name: {user.name}</li>
-                        <li>Email: {user.email}</li>
-                    </ul>
-                </section>
+                <UserInfo user={user}/>
                 <section>
                     <h2>Todos</h2>
                     <ul>
-                        {userTodoLists.map(({id}) =>
+                        {todoLists.map(({id}) =>
                             <li>
                                 <button
-                                    onClick={() => location.select('TodosPage', {id})}
+                                    onClick={() =>
+                                        location.update('TodosPage', {
+                                            userId: user.id,
+                                            todosId: id
+                                        })
+                                    }
                                 >Todos № {id}</button>
                             </li>
                         )}

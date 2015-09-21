@@ -4,7 +4,8 @@ import Fetch from 'todomvc/common/services/Fetch'
 function normalizeTodo(todo) {
     return {
         id: todo.id,
-        title: todo.title
+        title: todo.title,
+        isChecked: todo.checked
     }
 }
 
@@ -13,8 +14,8 @@ function normalizeTodos(todos) {
 }
 
 function FetchTodos({fetch}) {
-    return function fetchTodos(id) {
-        return fetch(`/todos/${id}`)
+    return function fetchTodos({userId, todosId}) {
+        return fetch(`/user/${userId}/todos/${todosId}`)
             .then(normalizeTodos)
     }
 }

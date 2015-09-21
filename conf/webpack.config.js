@@ -8,6 +8,7 @@ export default {
     debug: true,
     devtool: 'source-map',
     output: {
+        publicPath: '/',
         path: path.resolve(__dirname, '..', 'build'),
         filename: 'app.js'
     },
@@ -17,10 +18,18 @@ export default {
         instance: process.env.APP_INSTANCE || 'client'
     },
     module: {
-        preLoaders: [{
-            test: /\.styl$/,
-            loader: 'import-glob-loader'
-        }],
+        preLoaders: [
+            {
+                test: /\.styl$/,
+                loader: 'import-glob-loader'
+            },
+            {
+                test: /\.js$/,
+                exclude: /(?:src)/,
+                include: /(?:node_modules|bower_components)/,
+                loader: 'source-map-loader'
+            }
+        ],
         loaders: [
             {
                 test: /\.json$/,

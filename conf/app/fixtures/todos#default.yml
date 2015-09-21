@@ -1,40 +1,48 @@
 fixtures:
-    /todos/1:
+    /user/1/todos/1:
         -
             id: 1
             listId: 1
             title: todo homework 1
+            checked: true
         -
             id: 2
             listId: 1
             title: todo homework 2
+            checked: false
 
-    /todos/2:
+    /user/1/todos/2:
         -
             id: 3
             listId: 2
             title: todo work 1
+            checked: true
         -
             id: 4
             listId: 2
             title: todo work 2
+            checked: true
 
-    /todos/4:
+    /user/2/todos/4:
         -
             id: 5
             listId: 4
             title: todo second homework 1
+            checked: false
         -
             id: 6
             listId: 4
             title: todo second homework 2
+            checked: false
 
-    /todos/5:
+    /user/2/todos/5:
         -
             id: 7
             listId: 5
             title: todo second work 1
+            checked: true
         -
             id: 8
             listId: 5
             title: todo second work 2
+            checked: false

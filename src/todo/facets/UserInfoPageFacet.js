@@ -3,13 +3,15 @@ import LoadTodoLists from 'todomvc/todo/loaders/LoadTodoLists'
 
 function UserInfoPageFacet({
     loadTodoLists,
-    todoLists
+    todoLists,
+    user
 }) {
     loadTodoLists()
-    return todoLists
+    return {todoLists, user}
 }
 
 export default Factory({
     loadTodoLists: LoadTodoLists,
+    user: ['user', 'current'],
     todoLists: ['todo', 'todoLists']
 })(UserInfoPageFacet)

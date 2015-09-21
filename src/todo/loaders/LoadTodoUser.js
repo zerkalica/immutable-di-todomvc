@@ -1,12 +1,12 @@
 import {Factory, Getter, Setter} from 'immutable-di/define'
 import Semaphore from 'todomvc/common/services/Semaphore'
-import FetchTodoLists from 'todomvc/todo/fetchers/FetchTodoLists'
+import FetchTodos from 'todomvc/todo/fetchers/FetchTodos'
 import FetchUser from 'todomvc/user/fetchers/FetchUser'
 
-function LoadTodoLists({
-    fetchTodoLists,
+function LoadTodoUser({
+    fetchTodos,
     fetchUser,
-    getCurrentTodoLists,
+    getCurrentTodos,
     getCurrentUser,
     setTodos,
     setCurrentUser,
@@ -14,26 +14,26 @@ function LoadTodoLists({
     semaphore,
     query
 }) {
-    return function loadTodoLists() {
-        const userId = query.id
-        const needTodos = getCurrentTodoLists().length === 0
+    return function loadTodoUser() {
+        const {userId, todosId} = query
+        const needTodos = getCurrentTodos().length === 0
         const needUser = !getCurrentUser().id
         return semaphore({
             selectedUser: [needUser, () => fetchUser(userId), setCurrentUser],
-            todoLists: [needTodos, () => fetchTodoLists(userId), setTodos]
+            todos: [needTodos, () => fetchTodos({userId, todosId}), setTodos]
         })
         .catch(e => setError(e.message))
     }
 }
 
 export default Factory({
-    fetchTodoLists: FetchTodoLists,
+    fetchTodos: FetchTodos,
     fetchUser: FetchUser,
     query: ['route', 'query'],
     getCurrentUser: Getter(['user', 'current']),
-    getCurrentTodoLists: Getter(['todo', 'todoLists']),
-    setTodos: Setter(['todo', 'todoLists']),
+    getCurrentTodos: Getter(['todo', 'todos']),
+    setTodos: Setter(['todo', 'todos']),
     setCurrentUser: Setter(['user', 'current']),
     setError: Setter(['fetcher', 'error']),
     semaphore: Semaphore
-})(LoadTodoLists)
+})(LoadTodoUser)
