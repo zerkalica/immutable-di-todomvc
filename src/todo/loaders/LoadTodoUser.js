@@ -15,12 +15,12 @@ function LoadTodoUser({
     query
 }) {
     return function loadTodoUser() {
-        const {userId, todosId} = query
+        const {userId, listId} = query
         const needTodos = getCurrentTodos().length === 0
         const needUser = !getCurrentUser().id
         return semaphore({
             selectedUser: [needUser, () => fetchUser(userId), setCurrentUser],
-            todos: [needTodos, () => fetchTodos({userId, todosId}), setTodos]
+            todos: [needTodos, () => fetchTodos({userId, listId}), setTodos]
         })
         .catch(e => setError(e.message))
     }

@@ -5,7 +5,7 @@ function normalizeTodo(todo) {
     return {
         id: todo.id,
         title: todo.title,
-        isChecked: todo.checked
+        isCompleted: todo.completed
     }
 }
 
@@ -14,8 +14,8 @@ function normalizeTodos(todos) {
 }
 
 function FetchTodos({fetch}) {
-    return function fetchTodos({userId, todosId}) {
-        return fetch(`/user/${userId}/todos/${todosId}`)
+    return function fetchTodos({userId, listId}) {
+        return fetch(`/user/${userId}/todos/${listId}`)
             .then(normalizeTodos)
     }
 }

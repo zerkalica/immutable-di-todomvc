@@ -29,7 +29,7 @@ export default class UserInfoPage extends React.Component {
                                     onClick={() =>
                                         location.update('TodosPage', {
                                             userId: user.id,
-                                            todosId: id
+                                            listId: id
                                         })
                                     }
                                 >Todos № {id}</button>

@@ -4,4 +4,4 @@ config:
         /counter: CounterPage
         /user/<id>: UserInfoPage
         /user/<id>/todos: UserTodoListsPage
-        /user/<userId>/todos/<todosId>: TodosPage
+        /user/<userId>/todos/<listId>: TodosPage
